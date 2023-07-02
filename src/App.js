@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  const [currentContent, setCurrentContent] = useState("")
+  const [processedText, setProcessedText] = useState("")
+
+  function handleChange(){
+    setCurrentContent()
+    console.log(currentContent)
+    setProcessedText(proccessText(currentContent))
+  }
+
+  function proccessText(text){
+    return text+"BOOBIES"
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" > 
+      <textarea id="editor"
+      rows="20" cols="50"
+      value={currentContent}
+      onChange={handleChange}>
+    
+      </textarea>
+      <p id="preview">{processedText}</p>
     </div>
   );
 }
