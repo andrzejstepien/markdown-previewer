@@ -60,9 +60,7 @@ border:solid black 0.2rem;
   background-color: antiquewhite;
   padding:2rem;
   box-shadow:0.1rem 0.1rem 1rem inset;
-  font-size: 1.6rem;
-  overflow:scroll;
-  
+  font-size: 1.6rem
 }
 .processed-text{
   font-family: 'Merriweather', serif;
