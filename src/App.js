@@ -1,10 +1,11 @@
 import './App.css';
 import Markdown from 'marked-react';
 import { useState } from 'react';
+import Window from './Windows/Window';
 
 function App() {
-  const defaultText = 
-`# Hello and welcome to my markdown parser
+  const defaultText =
+    `# Hello and welcome to my markdown parser
 ## I love markdown
 [This is quite a useful resource.](https://markdown-it.github.io/) It has everything you need to know to get started with ${"`markdown`"}.
   
@@ -41,22 +42,31 @@ Blockquotes are **easy** too!
   const handleChange = event => {
     setCurrentContent(event.target.value)
   }
-
+  const clearContent = () =>{
+    setCurrentContent("")
+  }
+  const resetContent = () =>{
+    setCurrentContent(defaultText)
+    console.log(defaultText)
+  }
 
 
   return (
-    <div className="App" > 
-      <textarea id="editor"
-      rows="20" cols="50"
-      value={currentContent}
-      onChange={handleChange}>
-    
-      </textarea>
-      <div id="preview">
-        <Markdown>
-        {currentContent}
-        </Markdown>        
-      </div>
+    <div className="App" >
+      <Window clearContent={clearContent} resetContent={resetContent}>
+        <textarea id="editor"
+          rows="20" cols="50"
+          value={currentContent}
+          onChange={handleChange}>
+        </textarea>
+      </Window>
+      <Window>
+        <div id="preview">
+          <Markdown>
+            {currentContent}
+          </Markdown>
+        </div>
+      </Window>
     </div>
   );
 }
