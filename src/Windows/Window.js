@@ -14,6 +14,7 @@ export default function Window(props){
         <div className="window">
             <WindowHeader 
             toggleMinimise={toggleMinimise} 
+            isMinimised={minimised==="minimised"?true:false}
             clearContent={props.clearContent} 
             resetContent={props.resetContent}/>
             <main className={minimised}>

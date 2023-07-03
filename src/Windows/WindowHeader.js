@@ -3,7 +3,7 @@ export default function WindowHeader(props){
     return(
         <header>
             <button onClick={props.toggleMinimise}>
-                MINIMISE
+                {props.isMinimised?"MAXIMIZE":"MINIMIZE"}
             </button>
             {props.clearContent&&<button onClick={props.clearContent}>
                 CLEAR
